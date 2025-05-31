@@ -21,5 +21,5 @@ def load_config():
         "teacher_names_csv_filename": "teacher_names.csv",
         "default_week_range_str": default_week_range_str,
         "num_periods_per_day": 6,
-        "csv_data_start_col_offset": 7,
+        "csv_data_start_col_offset": 1,
     }

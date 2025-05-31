@@ -8,9 +8,9 @@ def get_week_range_string(date=None):
     return f"{start_of_week.strftime('%Y-%m-%d')}_{end_of_week.strftime('%m-%d')}"
 
 def decode_sjis(s):
-    if isinstance(s, str):
-        try:
-            return s.encode('latin1').decode('cp932')
-        except (UnicodeEncodeError, UnicodeDecodeError):
-            return s 
+    """
+    この関数はShift_JISデコードを行いません。
+    ファイルの読み込み時にエンコーディングを指定する方法に変更したため、
+    この関数は単純に受け取った値を文字列として返すだけにします。
+    """
     return str(s)

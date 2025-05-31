@@ -1,0 +1,21 @@
+<h3>{{ class_name }}の時間割詳細</h3>
+<table border='1' style='width:100%; border-collapse: collapse; text-align: center;'>
+    <thead>
+        <tr>
+            <th>時限</th>
+            {% for day_header in day_headers %}
+            <th>{{ day_header }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for period, lessons in timetable_data.items() %}
+        <tr>
+            <td>{{ period }}</td>
+            {% for lesson in lessons %}
+            <td>{{ lesson }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
