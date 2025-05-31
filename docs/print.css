@@ -1,0 +1,97 @@
+@media print {
+    /* ページの基本設定: A4横向きに設定 */
+    @page {
+        size: A4 landscape; /* ★A4横向き */
+        margin: 0.2cm; /* ★余白をさらに最小限に */
+    }
+
+    /* 印刷時に不要な要素を完全に非表示にする */
+    header, nav, footer, .controls, .print-button {
+        display: none !important; 
+    }
+
+    /* メインコンテンツの調整 */
+    main {
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        width: 100%; /* 印刷用紙の幅に合わせる */
+        font-size: 14pt; /* ★印刷時の基本フォントサイズをさらに大きく */
+        line-height: 1.2; /* 行間を少し詰める */
+        background-color: transparent; /* 背景色なし */
+    }
+    
+    #timetable-display h2 { /* 時間割のタイトル */
+        text-align: center;
+        margin-top: 5px; /* 上部の余白調整 */
+        margin-bottom: 10px; /* 下部の余白調整 */
+        font-size: 18pt; /* ★タイトルをさらに大きく */
+        color: black; /* 印刷時は黒 */
+        font-weight: bold; /* タイトルを太く */
+    }
+
+    /* テーブルのスタイルを印刷用に最適化 */
+    .timetable-table {
+        width: 100%;
+        height: auto; /* 高さは内容に合わせる */
+        border-collapse: collapse;
+        border: 1px solid black; /* 全体に枠線 */
+        font-size: 13pt; /* ★テーブル内の文字サイズをさらに大きく */
+        page-break-inside: avoid; /* テーブルがページ途中で切れないように */
+    }
+
+    .timetable-table th, .timetable-table td {
+        border: 1px solid black;
+        padding: 6px 4px; /* ★パディングを調整 */
+        text-align: center;
+        vertical-align: middle; /* 中央揃えに */
+        height: auto; /* 高さは自動調整 */
+        min-height: 50px; /* ★最小高さを確保 */
+        word-break: break-word; /* 長い単語を折り返す */
+    }
+    /* 時限の列の幅を少し狭める */
+    .timetable-table td:first-child, .timetable-table th:first-child {
+        width: 5%; /* 例: 5% */
+    }
+    /* 曜日の列の幅を均等に (6列なので約15.8%ずつ) */
+    .timetable-table th:not(:first-child), .timetable-table td:not(:first-child) {
+        width: 19%; /* (100-5)/5 = 19% */
+    }
+
+
+    .timetable-table th {
+        background-color: #f0f0f0 !important; /* ヘッダーの背景色を少しつける */
+        font-weight: bold; /* ★ヘッダーを太く */
+    }
+
+    /* 授業情報の表示 */
+    .lesson-info {
+        display: block; 
+        padding: 0;
+        margin: 0;
+    }
+    .lesson-info span {
+        display: block; 
+        font-size: 1em; 
+        font-weight: normal; 
+    }
+    .lesson-info .subject {
+        font-weight: bold; /* ★科目をさらに太く */
+    }
+    /* 教員と教室のスタイルは残しておくが、JavaScriptで表示しない */
+    .lesson-info .teacher, .lesson-info .room {
+        font-size: 0.9em; 
+    }
+
+    /* ページ分割の制御（重要） */
+    .timetable-table thead {
+        display: table-header-group; 
+    }
+    .timetable-table tbody {
+        display: table-row-group;
+    }
+    .timetable-table tr {
+        page-break-inside: avoid; 
+        page-break-after: auto;
+    }
+}
