@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時間割 | {{ week_range }}</title>
+     <link rel="stylesheet" href="https://hanzawah.github.io/TimeTableMake/style.css">
+
+    <link rel="stylesheet" href="https://hanzawah.github.io/TimeTableMake/print.css" media="print">
+
+    <script src="https://hanzawah.github.io/TimeTableMake/script.js"></script>
+</head>
+<body>
+    <h1>{{ week_range }} の時間割</h1>
+    <p>各クラスの時間割は以下から選択してください。</p>
+    <ul id="class-list">
+        {% for class_info in class_list %}
+        <li><a href="{{ class_info.filename }}">{{ class_info.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+    <footer>
+        <p>最新の時間割データを提供しています。</p>
+        <p>Powered by TimeTableMake</p>
+    </footer>
+    <script src="YOUR_GITHUB_PAGES_BASE_URLscript.js"></script>
+    <script>
+        // script.js が必要とするデータ読み込みロジックがあれば、
+        // その部分を時間割HTMLに直接埋め込むか、このJSを調整してください。
+        // 今回の方式ではデータはHTMLに埋め込むので、外部からのデータ読み込みは不要になるはずです。
+    </script>
+</body>
+</html>

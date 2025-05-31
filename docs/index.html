@@ -1,42 +1,16 @@
-<!DOCTYPE html>
-<html lang="ja">
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クラス別時間割</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="print.css" media="print">
+    <meta charset="utf-8">
+    <title>時間割</title>
+    <meta http-equiv="refresh" content="0;url=http://YOUR_INTERNAL_SERVER_URL/timetable/latest/index.html">
+    <script>
+        // JSが無効な環境や、meta refreshがうまく機能しない場合のフォールバック
+        window.location.replace("http://YOUR_INTERNAL_SERVER_URL/timetable/latest/index.html");
+    </script>
 </head>
 <body>
-    <header>
-        <h1>クラス別時間割公開システム</h1>
-        <nav>
-            <a href="./">ホーム</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="controls">
-            <h2>クラスを選択して時間割を表示</h2>
-            
-            <div class="control-group">
-                <label for="class-select">クラスを選択:</label>
-                <select id="class-select"></select>
-                </div>
-            
-            <button onclick="window.print()" class="print-button">この時間割を印刷</button>
-        </section>
-
-        <section id="timetable-display">
-            <p>クラスを選択して「表示」ボタンを押してください。</p>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Your School TimeTable System. All rights reserved.</p>
-    </footer>
-
-    <script src="data/timetable_data.js"></script> 
-    <script src="script.js"></script>
+    最新の時間割ページに移動中...<br>
+    <a href="http://YOUR_INTERNAL_SERVER_URL/timetable/latest/index.html">もし自動で移動しない場合はこちらをクリックしてください（学内のみアクセス可）</a>
 </body>
 </html>
